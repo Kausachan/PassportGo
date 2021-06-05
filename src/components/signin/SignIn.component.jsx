@@ -33,7 +33,7 @@ class SignIn extends Component{
 					password : '',
 					invalid : true})
 			}
-			setLoader(null)
+			await setLoader(null)
 		}
 		func(email, password);
 		setLoader(true)

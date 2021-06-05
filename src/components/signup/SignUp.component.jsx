@@ -29,17 +29,18 @@ class SignUp extends React.Component{
 		const func = async(displayName, email, confirmPassword, password) =>{
 			try{
 			const {user} = await auth.createUserWithEmailAndPassword(email, password)
-			createUserProfile(user, {displayName})
+			await createUserProfile(user, {displayName});
 			}
 			catch(error){
 				alert("error occured try again later...");
 				console.error(error)
 			}
+			await setLoader(null);
 			this.setState({displayName : '',
 				password : '',
 				confirmPassword : '',
 				email : ''})
-			setLoader(null);
+			
 		} 
 		func(displayName, email, confirmPassword, password);
 		setLoader(true);
