@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PassportGo/static/css/main.81e96c3d.chunk.css",
-    "main.js": "/PassportGo/static/js/main.08e1c732.chunk.js",
-    "main.js.map": "/PassportGo/static/js/main.08e1c732.chunk.js.map",
+    "main.js": "/PassportGo/static/js/main.8ae922ec.chunk.js",
+    "main.js.map": "/PassportGo/static/js/main.8ae922ec.chunk.js.map",
     "runtime-main.js": "/PassportGo/static/js/runtime-main.4865c3bb.js",
     "runtime-main.js.map": "/PassportGo/static/js/runtime-main.4865c3bb.js.map",
     "static/js/2.95661e64.chunk.js": "/PassportGo/static/js/2.95661e64.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.4865c3bb.js",
     "static/js/2.95661e64.chunk.js",
     "static/css/main.81e96c3d.chunk.css",
-    "static/js/main.08e1c732.chunk.js"
+    "static/js/main.8ae922ec.chunk.js"
   ]
 }
