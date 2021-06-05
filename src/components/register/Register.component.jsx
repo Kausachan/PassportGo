@@ -29,9 +29,9 @@ class Register extends React.Component{
 		const func = async() =>{
 			try
 			{
-				const userRef = await firestore.doc(`users/${currentUser.id}/kyc_details/Registration`);
+				const userRef = await firestore.doc(`users/${currentUser.email}/kyc_details/Registration`);
 				userRef.set({...this.state});
-				const docRef = await firestore.doc(`users/${currentUser.id}`);
+				const docRef = await firestore.doc(`users/${currentUser.email}`);
 				docRef.update({Registration : true});
 				alert("Registration successful");
 				
