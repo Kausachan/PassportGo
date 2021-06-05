@@ -4,6 +4,7 @@ import FormInput from '../forminput/FormInput.component';
 import CustomButton from '../custombutton/CustomButton.component';
 import {connect} from 'react-redux';
 import {firestore} from '../../firebase/Firebase.utils';
+import {setLoader} from '../../redux/loader/loader.actions'; 
 
 class Register extends React.Component{
 	constructor(props){
@@ -22,29 +23,35 @@ class Register extends React.Component{
 		}
 	}
 
-	handleSubmit = async (event) =>{
-		const {currentUser} = this.props;
+	handleSubmit = (event) =>{
+		const {currentUser, setLoader} = this.props;
 		event.preventDefault();
-		try
-		{
-			const userRef = await firestore.doc(`users/${currentUser.id}/kyc_details/Registration`);
-			userRef.set({...this.state});
-			const docRef = await firestore.doc(`users/${currentUser.id}`);
-			docRef.update({Registration : true});
+		const func = async() =>{
+			try
+			{
+				const userRef = await firestore.doc(`users/${currentUser.id}/kyc_details/Registration`);
+				userRef.set({...this.state});
+				const docRef = await firestore.doc(`users/${currentUser.id}`);
+				docRef.update({Registration : true});
+				alert("Registration successful");
+				
+			}catch(e){
+				alert("error occured");
+			}
+			setLoader(null);
 			this.setState({
-				email : '',
-				name : '',
-				fathername : '',
-				mothername : '',
-				gender : '',
-				age : '',
-				dob : '',
-				placeofbirth : '',
-				address : ''}, () => alert("Registration successful"));
-		}catch(e){
-			alert("error occured");
+					email : '',
+					name : '',
+					fathername : '',
+					mothername : '',
+					gender : '',
+					age : '',
+					dob : '',
+					placeofbirth : '',
+					address : ''});
 		}
-		
+		func();
+		setLoader(true);
 	}
 
 	handleChange = (event) =>{
@@ -157,6 +164,10 @@ class Register extends React.Component{
 
 const mapStateToProps = ({user}) =>({
 	currentUser : user.currentUser
+})
+
+const dispatchAction = (dispatch) =>({
+	setLoader : loader => dispatch(setLoader(loader))
 }) 
 
-export default connect(mapStateToProps)(Register);
+export default connect(mapStateToProps, dispatchAction)(Register);

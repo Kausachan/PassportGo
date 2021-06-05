@@ -5,7 +5,6 @@ import FormInput from '../forminput/FormInput.component';
 import {signInWithGoogle, auth} from '../../firebase/Firebase.utils';
 import {setLoader} from '../../redux/loader/loader.actions'; 
 import {connect} from 'react-redux';
-import Loader from 'react-loader';
 
 class SignIn extends Component{
 	constructor(props){
@@ -79,18 +78,7 @@ class SignIn extends Component{
 						required
 					/>
 					<div className = 'button'>
-						<CustomButton type = "submit" onClick = {this.handleSubmit}> {
-							this.props.loader ?
-								(
-									<Loader loaded={false} lines={13} length={20} width={10} radius={30}
-									    corners={1} rotate={0} direction={1} color="#000" speed={1}
-									    trail={60} shadow={false} hwaccel={false} className="spinner"
-									    zIndex={2e9} top="50%" left="50%" scale={1.00}
-									    loadedClassName="loadedContent" />
-									)
-							:
-								`SIGN IN`
-						} </CustomButton>
+						<CustomButton type = "submit" onClick = {this.handleSubmit}> SIGN IN </CustomButton>
 						<CustomButton type = "submit"  onClick = {() => signInWithGoogle()} IsGoogleSignin> SIGN IN WITH GOOGLE </CustomButton>
 					</div>
 				</form>
@@ -100,12 +88,9 @@ class SignIn extends Component{
 	}
 }
 
-const mapStateToProps = ({loader}) =>({
-	loader : loader.loader
-})
 
 const dispatchAction = (dispatch) =>({
 	setLoader : loader => dispatch(setLoader(loader))
 })
 
-export default connect(mapStateToProps, dispatchAction)(SignIn);
+export default connect(null, dispatchAction)(SignIn);

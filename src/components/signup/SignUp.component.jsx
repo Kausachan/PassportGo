@@ -3,6 +3,8 @@ import {auth, createUserProfile} from '../../firebase/Firebase.utils';
 import FormInput from '../forminput/FormInput.component';
 import CustomButton from '../custombutton/CustomButton.component';
 import './SignUp.styles.scss';
+import {setLoader} from '../../redux/loader/loader.actions'; 
+import {connect} from 'react-redux';
 
 class SignUp extends React.Component{
 	constructor(){
@@ -15,26 +17,32 @@ class SignUp extends React.Component{
 		}
 	}
 
-	handleSubmit = async event =>{
+	handleSubmit = (event) =>{
 		event.preventDefault();
 		const {displayName, email, confirmPassword, password} = this.state;
+		const {setLoader} = this.props;
 		if(password !== confirmPassword)
 		{
 			alert("password don't match");
 			return;
 		}
-		try{
+		const func = async(displayName, email, confirmPassword, password) =>{
+			try{
 			const {user} = await auth.createUserWithEmailAndPassword(email, password)
 			createUserProfile(user, {displayName})
-		}
-		catch(error){
-			alert("error occured try again later...");
-			console.error(error)
-		}
-		this.setState({displayName : '',
-			password : '',
-			confirmPassword : '',
-			email : ''})
+			}
+			catch(error){
+				alert("error occured try again later...");
+				console.error(error)
+			}
+			this.setState({displayName : '',
+				password : '',
+				confirmPassword : '',
+				email : ''})
+			setLoader(null);
+		} 
+		func(displayName, email, confirmPassword, password);
+		setLoader(true);
 	}
 
 	handleChange = event =>{
@@ -89,4 +97,9 @@ class SignUp extends React.Component{
 }
 
 
-export default SignUp;
+const dispatchAction = (dispatch) =>({
+	setLoader : loader => dispatch(setLoader(loader))
+})
+
+
+export default connect(null, dispatchAction)(SignUp);
