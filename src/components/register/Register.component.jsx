@@ -10,7 +10,7 @@ class Register extends React.Component{
 	constructor(props){
 		super(props);
 			this.state = {
-				email : '',
+				email : this.props.currentUser.email,
 				name : '',
 				fathername : '',
 				mothername : '',
@@ -74,10 +74,10 @@ class Register extends React.Component{
 							<FormInput
 							type = "text"
 							label = "Email"
-							value = {this.state.email}
+							value = {this.props.currentUser.email}
 							name = "email"
-							handleChange = {this.handleChange}
 							required
+							readonly
 							register/>
 							<FormInput
 							type = "text"
