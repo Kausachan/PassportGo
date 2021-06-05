@@ -1,0 +1,17 @@
+.verification-input{
+	height : 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.verification-form-input{
+			width : 40%;
+			margin-bottom: 100px;
+	}
+	.verification-text{
+		margin-left: 180px;
+		margin-bottom: 50px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+}

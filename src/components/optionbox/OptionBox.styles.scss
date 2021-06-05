@@ -1,0 +1,25 @@
+.option-box{
+	height : 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.option-box-container{
+		width: 50%;
+		padding-left: 235px;
+		height: 80%;
+		border: 2px solid black;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+		.option-box-option{
+			font-weight: bold;
+
+			&:hover{
+				text-decoration: none;
+				opacity: 0.5;
+			}
+		}
+	}
+}
