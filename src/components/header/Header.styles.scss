@@ -43,9 +43,10 @@
 	font-weight: bold;
 }
 .link-home{
-
+			text-decoration-color: black;
 			&:hover{
-			opacity : 0.5;
 			text-decoration: none;
+			opacity : 0.5;
+			
 		}
 }
