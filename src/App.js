@@ -79,14 +79,20 @@ componentWillUnmount(){
                   currentUser.Registration ?
                     <Verification />
                   :
-                  <Link to = "/home/registration"><h3>Click Here to Register</h3></Link>
+                  <Link to = "/home/registration"><h3>Click Here To Register</h3></Link>
                   )
               )
             :
             <Link to = "/"> Signin </Link> 
 
           } />
-          <Route exact path = "/home/checkStatus" component = {CheckStatus}/>
+          <Route exact path = "/home/checkStatus" render = { () =>
+            currentUser.Verification ?
+            <CheckStatus/>
+            :
+            <Link to = "/home/verification"><h3>Click Here To Verify</h3></Link>
+
+          }/>
         </Switch>
       </div>
       )

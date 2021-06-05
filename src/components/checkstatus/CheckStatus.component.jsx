@@ -1,9 +1,21 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-const CheckStatus = () =>{
+const CheckStatus = ({currentUser}) =>{
 	return(
-		<h1> You will recieve passport on or before 30/6/21</h1>
+		<div>
+		{
+			!currentUser.status ?
+			<h1> You will recieve passport shortly</h1>
+			:
+			<h1>Your Passport Has been delivered</h1>
+		}
+		</div>
 		)
 }
 
-export default CheckStatus;
+const mapStateToProps = ({user}) =>({
+	currentUser : user.currentUser
+})
+
+export default connect(mapStateToProps)(CheckStatus);

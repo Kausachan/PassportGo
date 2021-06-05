@@ -25,7 +25,9 @@ class Verification extends React.Component{
 			const docRef = await firestore.doc(`users/${currentUser.id}`);
 			const date = new Date();
 			docRef.update({Verification : true,
-				verifiedAt : date});
+				verifiedAt : date,
+				status : false
+			});
 			this.setState({
 				adhaar : '',
 				birthcertificate : '',
