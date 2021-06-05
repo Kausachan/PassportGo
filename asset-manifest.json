@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PassportGo/static/css/main.225e67db.chunk.css",
+    "main.css": "/PassportGo/static/css/main.51f9111e.chunk.css",
     "main.js": "/PassportGo/static/js/main.1951b2cf.chunk.js",
     "main.js.map": "/PassportGo/static/js/main.1951b2cf.chunk.js.map",
     "runtime-main.js": "/PassportGo/static/js/runtime-main.4865c3bb.js",
@@ -8,13 +8,13 @@
     "static/js/2.505faa93.chunk.js": "/PassportGo/static/js/2.505faa93.chunk.js",
     "static/js/2.505faa93.chunk.js.map": "/PassportGo/static/js/2.505faa93.chunk.js.map",
     "index.html": "/PassportGo/index.html",
-    "static/css/main.225e67db.chunk.css.map": "/PassportGo/static/css/main.225e67db.chunk.css.map",
+    "static/css/main.51f9111e.chunk.css.map": "/PassportGo/static/css/main.51f9111e.chunk.css.map",
     "static/js/2.505faa93.chunk.js.LICENSE.txt": "/PassportGo/static/js/2.505faa93.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4865c3bb.js",
     "static/js/2.505faa93.chunk.js",
-    "static/css/main.225e67db.chunk.css",
+    "static/css/main.51f9111e.chunk.css",
     "static/js/main.1951b2cf.chunk.js"
   ]
 }
