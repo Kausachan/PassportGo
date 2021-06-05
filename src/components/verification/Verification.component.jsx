@@ -23,7 +23,9 @@ class Verification extends React.Component{
 			const userRef = await firestore.doc(`users/${currentUser.id}/kyc_details/Verification`);
 			userRef.set({...this.state});
 			const docRef = await firestore.doc(`users/${currentUser.id}`);
-			docRef.update({Verification : true});
+			const date = new Date();
+			docRef.update({Verification : true,
+				verifiedAt : date});
 			this.setState({
 				adhaar : '',
 				birthcertificate : '',

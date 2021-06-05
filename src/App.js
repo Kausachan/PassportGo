@@ -75,7 +75,12 @@ componentWillUnmount(){
               (currentUser.Verification ?
                 (<h1> You've already Responded</h1>)
               :
-                 (<Verification/>)
+                (
+                  currentUser.Registration ?
+                    <Verification />
+                  :
+                  <Link to = "/home/registration"><h3>Click Here to Register</h3></Link>
+                  )
               )
             :
             <Link to = "/"> Signin </Link> 
