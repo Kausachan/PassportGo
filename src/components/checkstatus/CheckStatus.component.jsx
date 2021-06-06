@@ -6,9 +6,9 @@ const CheckStatus = ({currentUser}) =>{
 		<div>
 		{
 			!currentUser.status ?
-			<h1> You will recieve passport shortly</h1>
+			<h1>Verification In Progress</h1>
 			:
-			<h1>Your Passport Has been delivered</h1>
+			<h1>You Will Recieve Passport Shortly</h1>
 		}
 		</div>
 		)

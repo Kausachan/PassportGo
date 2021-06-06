@@ -8,7 +8,6 @@ class OptionBox extends React.Component{
 		return(
 				<div className = "option-box">
 					<div className = "option-box-container">
-
 						<Link to = "/home/registration" className = "option-box-option"><h1>Registration</h1></Link>
 						<Link to = "/home/verification" className = "option-box-option"><h1>Verification</h1></Link>
 						<Link to = "/home/checkStatus" className = "option-box-option"><h1>Check Status</h1></Link>
